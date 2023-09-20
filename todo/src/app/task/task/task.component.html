@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="content">
+      <span>
+        {{ subject }}
+        <button type="button" [disabled]="state === TaskState.Finish">編輯</button>
+      </span>
+      <!-- 單個樣式繫結 -->
+      <!-- <span [style.color]="getStateColor()">{{ getStateDesc() }}</span> -->
+      <!-- 多個樣式繫結 -->
+      <!-- <span [style]="getStateStyle()">{{ getStateDesc() }}</span> -->
+      <!-- 單個樣式類別繫結 -->
+      <!-- <span [class.doing]="state === TaskState.Doing" [class.finish]="state === TaskState.Finish">
+        {{ stateDesc }}
+      </span> -->
+      <!-- 多個樣式類別繫結 -->
+      <!-- <span [class]="{ doing: state === TaskState.Doing, finish: state === TaskState.Finish }">
+        {{ stateDesc }}
+      </span> -->
+      <!-- ngClass -->
+      <!-- <span [ngClass]="stateClass">{{ stateDesc }}</span> -->
+      <!-- 自訂屬性型指令 -->
+      <span [appTaskStateColor]="state">{{ stateDesc }}</span>
+    </div>
+    <div class="button">
+      <span>
+        <button type="button" (click)="onSetTaskState(TaskState.None)">未完成</button>
+        <button type="button" (click)="onSetTaskState(TaskState.Doing)">進行中</button>
+        <button type="button" (click)="onSetTaskState(TaskState.Finish)">已完成</button>
+      </span>
+    </div>
+  </div>

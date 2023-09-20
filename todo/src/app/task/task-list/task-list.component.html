@@ -1,0 +1,12 @@
+<!-- <ng-template ngFor let-task [ngForOf]="tasks">
+  <app-task 
+  [subject]="task.subject" 
+  [(state)]="task.state">
+  </app-task>
+</ng-template> -->
+<app-task
+  *ngFor="let task of tasks; let i = index"
+  [class.odd]="i % 2 === 1"
+  [subject]="task.subject"
+  [(state)]="task.state"
+></app-task>

@@ -1,0 +1,39 @@
+div.card {
+  margin: 5px;
+  font-size: 14pt;
+  line-height: 2em;
+  border: solid 2px #bbb;
+}
+
+div.card div.content {
+  padding: 10px;
+  border-bottom: solid 1px #ccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.card div.button {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.card div.button button {
+  margin-right: 5px;
+}
+
+span.none {
+  font-size: 10px;
+}
+span.doing {
+  font-size: 30px;
+}
+
+span.finish {
+  font-size: 40px;
+}
+
+:host(.odd) div.card {
+  background-color: cornsilk;
+}
