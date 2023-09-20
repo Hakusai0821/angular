@@ -11,15 +11,16 @@ import { TodoStatusType } from "./todo-status-type";
   templateUrl: "./todo-list.component.html",
   styleUrls: ["./todo-list.component.css"],
 })
-// /**
-// * 新增代辦事項
-// *
-// * @param {HTMLInputElement} inputRef - 輸入框的元素實體
-// * @memberof TodoListComponent
-// */
 export class TodoListComponent implements OnInit {
   constructor(private todoListService: TodoListService) {}
   ngOnInit(): void {}
+
+  // /**
+  //  * 新增代辦事項
+  //  *
+  //  * @param {HTMLInputElement} inputRef - 輸入框的元素實體
+  //  * @memberof TodoListComponent
+  //  */
   addTodo(event: KeyboardEvent): void {
     const todoThing = event.target as HTMLInputElement;
     if (!todoThing) {
