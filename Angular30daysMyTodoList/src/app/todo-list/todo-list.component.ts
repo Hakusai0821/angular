@@ -17,10 +17,6 @@ export class TodoListComponent implements OnInit {
 
   // /**
   //  * 新增代辦事項
-  //  *
-  //  * @param {HTMLInputElement} inputRef - 輸入框的元素實體
-  //  * @memberof TodoListComponent
-  //  */
   addTodo(event: KeyboardEvent): void {
     const todoThing = event.target as HTMLInputElement;
     if (!todoThing) {
@@ -34,12 +30,8 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  /**
-   * 取得待辦事項清單
-   *
-   * @returns {Todo[]}
-   * @memberof TodoListComponent
-   */
+  //  * 取得待辦事項清單
+
   getList(): Todo[] {
     let list: Todo[] = [];
 
@@ -56,15 +48,11 @@ export class TodoListComponent implements OnInit {
         list = this.todoListService.getList();
         break;
     }
-
     return list;
   }
 
   /**
    * 移除待辦事項
-   *
-   * @param {number} index - 待辦事項的索引位置
-   * @memberof TodoListComponent
    */
   remove(index: number): void {
     this.todoListService.remove(index);
@@ -72,9 +60,6 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 開始編輯待辦事項
-   *
-   * @param {Todo} todo
-   * @memberof TodoListComponent
    */
   edit(todo: Todo): void {
     todo.editable = true;
@@ -82,10 +67,6 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 更新待辦事項
-   *
-   * @param {Todo} todo - 原本的待辦事項
-   * @param {string} newTitle - 新的事項名稱
-   * @memberof TodoListComponent
    */
   update(todo: Todo, newTitle: string): void {
     if (!todo.editing) {
@@ -110,9 +91,6 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 取消編輯狀態
-   *
-   * @param {Todo} todo - 欲取消編輯狀態的待辦事項
-   * @memberof TodoListComponent
    */
   cancelEditing(todo: Todo): void {
     todo.editable = false;
@@ -120,9 +98,6 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 取得未完成的待辦事項清單
-   *
-   * @returns {Todo[]}
-   * @memberof TodoListComponent
    */
   getRemainingList(): Todo[] {
     return this.todoListService.getWithCompleted(false);
@@ -130,24 +105,15 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 待辦事項狀態的列舉
-   *
-   * @memberof TodoListComponent
    */
   todoStatusType = TodoStatusType;
 
-  /**
-   * 目前狀態
-   *
-   * @private
-   * @memberof TodoListComponent
-   */
+  //  * 目前狀態
+  //  *
   private status = TodoStatusType.All;
 
   /**
    * 取得已完成的待辦事項
-   *
-   * @returns {Todo[]}
-   * @memberof TodoListComponent
    */
   getCompletedList(): Todo[] {
     return this.todoListService.getWithCompleted(true);
@@ -155,9 +121,6 @@ export class TodoListComponent implements OnInit {
 
   /**
    * 設定狀態
-   *
-   * @param {number} status - 欲設定的狀態
-   * @memberof TodoListComponent
    */
   setStatus(status: number): void {
     this.status = status;

@@ -31,13 +31,9 @@ export class Todo {
     this.title = title || ""; // 為避免傳入的值為 Falsy 值，稍作處理
   }
 
-  /**
-   * 此事項是否已經完成
-   *
-   * @readonly
-   * @type {boolean}
-   * @memberof Todo
-   */
+  // **
+  //  * 此事項是否已經完成
+ 
   get done(): boolean {
     return this.completed;
   }
@@ -52,11 +48,9 @@ export class Todo {
     return this.title;
   }
 
-  /**
-   * 來回切換完成狀態
-   *
-   * @memberof Todo
-   */
+  // **
+  //  * 來回切換完成狀態
+  //  *
   toggleCompletion(): void {
     this.completed = !this.completed;
   }
@@ -99,12 +93,8 @@ export class Todo {
     this.title = title;
   }
 
-  /**
-   * 設定是否完成
-   *
-   * @param {boolean} completed
-   * @memberof Todo
-   */
+
+  //  * 設定是否完成
   setCompleted(completed: boolean): void {
     this.completed = completed;
   }
