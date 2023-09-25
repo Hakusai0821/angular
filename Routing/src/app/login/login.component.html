@@ -1,1 +1,3 @@
-<button routerLink="/home">登入</button>
+<button routerLink="/home" [queryParams]="{name: 'Leo'}">登入</button><p></p>
+<button (click)="login()">登入</button>
+<input type="text" [(ngModel)]="name">

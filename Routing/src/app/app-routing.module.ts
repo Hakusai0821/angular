@@ -1,16 +1,18 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+// 預先載入 import { PreloadAllModules } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 import { AboutComponent } from "./about/about.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { LayoutGuard } from "./layout/layout.guard";
+import { EnsureLoginGuard } from "./login/ensure-login.guard";
 const routes: Routes = [
   {
-    path: "",
+    path: "", //預設路徑為  LayoutComponent
     component: LayoutComponent,
-    canActivate: [LayoutGuard],
+    canActivate: [LayoutGuard],  //路由守衛
     children: [
       {
         path: "home",
@@ -32,11 +34,11 @@ const routes: Routes = [
     // loadChildren --模組延遲載入功能主要就是透過這個屬性來設定。
     loadChildren: () =>
       import("./feature/feature.module").then((m) => m.FeatureModule),
-  
   },
   {
     path: "login",
     component: LoginComponent,
+    canDeactivate: [EnsureLoginGuard]
   },
   {
     path: "**",
@@ -46,7 +48,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)
+  
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

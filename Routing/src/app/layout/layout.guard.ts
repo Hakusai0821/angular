@@ -1,10 +1,13 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import {
+  ActivatedRoute,
   ActivatedRouteSnapshot,
   CanActivate,
   CanActivateFn,
   RouterStateSnapshot,
   UrlTree,
+  Router,
+  ParamMap,
 } from "@angular/router";
 import { Observable } from "rxjs";
 
@@ -12,6 +15,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class LayoutGuard implements CanActivate {
+  constructor(private route: ActivatedRoute, private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -20,18 +24,21 @@ export class LayoutGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      const jwt = localStorage.getItem('jwt');
-      if (jwt) {
-        const payload = JSON.parse(window.atob(jwt.split('.')[1]));
-        const exp = new Date(Number(payload.exp) * 1000);
-        if (new Date() > exp) {
-          alert('JWT已過期，請重新登入');
-          return false;
-        }
-      } else {
-        alert('尚未登入');
-        return false;
-      }
-    return true;
+    const canActivate = route.queryParams["name"];
+
+    // if (canActivate==='Leo') {
+      
+    if (
+      this.route.queryParams.subscribe((queryParams) => {
+        var a = queryParams['name']==='Leo';
+        console.log(queryParams["name"]);
+      })
+    ) {
+      console.log("我進來瞜");
+      return true;
+    } else {
+      alert("你不是Leo，不能進去！");
+      return false;
+    }
   }
 }
