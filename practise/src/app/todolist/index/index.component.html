@@ -1,0 +1,10 @@
+<h1>ToDoList</h1>
+<app-header (onChangeItem)="onChangeItem($event)"></app-header>
+
+<app-plan [data]="plans" (onChangeItem)="onChangeItem($event)"></app-plan>
+
+<app-done [data]="dones" (onDelItem)="onChangeItem($event)"></app-done>
+
+<footer>
+    <button (click)="onDelAll()">清除所有</button>
+</footer>

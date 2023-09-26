@@ -1,0 +1,6 @@
+父組件輸入
+<input type="text" [(ngModel)]="parentValue" />
+<p>父組件: {{ parentValue }}</p>
+<!-- 父組件給子組件一個自訂義事件 -->
+<!-- output回來找到(setValue)調用getSon(佔位標示符用來接受參數就是input框的value值) -->
+<app-input [value]="parentValue" (setValue)="getSon($event)"></app-input>

@@ -1,0 +1,23 @@
+<p>執行中的計畫，共{{ list.length }}條</p>
+
+<ul>
+  <li *ngFor="let item of list; index as i">
+    <!-- 根據數據的值，來判定顯示 -->
+    <div
+      (click)="onSetEdit(item)"
+      class="flex"
+      [ngStyle]="{ display: item.edit ? 'none' : 'flex' }"
+    >
+      <p>{{ i + 1 }}、</p>
+      <p>{{ item.value }}</p>
+      <button (click)="onDel(item,$event)">刪除</button>
+    </div>
+
+    <input
+      [(ngModel)]="item.value"
+      (keyup)="onEnter(item, $event)"
+      type="text"
+      [ngStyle]="{ display: item.edit ? 'block' : 'none' }"
+    />
+  </li>
+</ul>

@@ -1,0 +1,11 @@
+<p>已完成的計畫，共{{ list.length }}條</p>
+
+<ul>
+  <li *ngFor="let item of list; index as i">
+    <div class="flex">
+      <p>{{ i + 1 }}、</p>
+      <p>{{ item.value }}</p>
+      <button (click)="onDel(item)">刪除</button>
+    </div>
+  </li>
+</ul>
