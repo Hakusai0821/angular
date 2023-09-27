@@ -26,14 +26,13 @@ export class IndexComponent {
         edit,
       });
     }
-
     switch (from) {
       //從plans轉入 dones
       case "plans":
       this.findAndChangeItem(id,this.plans,this.dones);
         break;
       default:
-      //被刪除
+      //刪除
       this.dones.splice(this.dones.findIndex(item=>item.id===id))
     }
   }

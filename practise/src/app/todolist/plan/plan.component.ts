@@ -20,12 +20,11 @@ export class PlanComponent {
     // stopPropagation 阻止冒泡
 
     // 阻止冒泡
-    event.stopPropagation()
+    // event.stopPropagation()
     //告訴負笈把當前這一條數據刪除並且插入到dones的物件中
     this.onChangeItem.emit({...item,from:'plans',to:'dones'})
-                  //回傳除了原本item內容從plans發生到dones
+                  //回傳除了原本item內容 從plans發生到dones
   }
-
 
   //確認編輯
   onEnter(item: Template, event: any) {

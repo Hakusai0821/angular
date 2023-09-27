@@ -11,4 +11,16 @@
 <!-- <app-index></app-index> -->
 
 <!-- 管道pipe -->
-<app-pipereverse></app-pipereverse>
+<!-- <app-pipereverse></app-pipereverse> -->
+
+<h1>Angular練習</h1>
+<div>
+  <a [routerLink]="['/父子傳遞']" class="nav-item"
+  routerLinkActive="active">父子傳遞</a>
+  <a [routerLink]="['/雙向綁定']" class="nav-item" routerLinkActive="active">雙向綁定</a>
+  <a [routerLink]="['/監聽值變化']" class="nav-item" routerLinkActive="active">監聽值變化(get,set)</a>
+  <a [routerLink]="['/todolist']" class="nav-item" routerLinkActive="active">ToDoList</a>
+</div>
+<br />
+<!-- router-outlet 不會渲染成任何標籤，只是用來加載我們路由匹配到的對應組件 -->
+<router-outlet></router-outlet>

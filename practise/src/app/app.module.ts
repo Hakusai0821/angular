@@ -38,6 +38,7 @@ import { PipereverseComponent } from './view/pipereverse/pipereverse.component';
     ReversePipe,
     PipereverseComponent
   ],
+  //導入的只能是Module(模塊)
   imports: [
     BrowserModule,
     AppRoutingModule,
