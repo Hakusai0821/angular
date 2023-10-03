@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     RadioButtonModule,
     FormsModule,
     AppRoutingModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

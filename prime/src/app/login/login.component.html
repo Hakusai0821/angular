@@ -1,4 +1,4 @@
-<form action="#" method="post">
+<form  [formGroup]="applyForm" (ngSubmit)="sendForm()">
   <div class="field grid">
     <label for="firstname3" class="col-fixed" style="width: 120px"
       >帳號 :
@@ -7,8 +7,10 @@
       <input
         id="firstname3"
         type="text"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
-      />
+        class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary "
+        formControlName="userName"
+      >
+      <span *ngIf="applyForm.get('userName')?.invalid && applyForm.get('userName')?.touched">請輸入帳號</span>
     </div>
   </div>
   <div class="field grid">
@@ -19,19 +21,8 @@
       <input
         id="lastname3"
         type="text"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ng-invalid ng-dirty"
-      />
-    </div>
-  </div>
-  <div class="field grid">
-    <label for="lastname3" class="col-fixed" style="width: 120px"
-      >再次輸入密碼 :
-    </label>
-    <div class="col">
-      <input
-        id="lastname3"
-        type="text"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary ng-invalid ng-dirty"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary "
+        formControlName="password"
       />
     </div>
   </div>
@@ -42,12 +33,24 @@
     <div class="col">
       <input
         id="lastname3"
-        type="text"
-        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+        type="email"
+        class="text-base text-color surface-overlay p-2 border-1 border-solid  border-round appearance-none outline-none focus:border-primary"
+        formControlName="email"
       />
     </div>
   </div>
   
-  <p-button label="Submit" [routerLink]="'/home'" [queryParams]="{name: 'Leo'}"></p-button>
+  <p-button label="Submit" type="submit"></p-button>
+  <!-- <button type="submit" [routerLink]="'/home'" [queryParams]="{name: 'Leo'}">送出</button> -->
   
+
+  <!-- <div>
+		暗語: <input type="text" formControlName="secret">
+    </div> -->
 </form>
+<p *ngIf="showSecret">
+  <span style="color:blue">這是一個隱藏的秘密</span>
+</p>
+{{applyForm.value |json}}
+
+
