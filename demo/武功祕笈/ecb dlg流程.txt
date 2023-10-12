@@ -1,0 +1,18 @@
+ecb dlg流程
+
+0. dlg的生成使用動態創建(dlgproxy.component中的createComponent)
+   Q : 要使用dlg的模塊是如何與tpc的dlg連接?
+   A : dlgproxy中調用LookupService的function找到從tpc導出的dlg
+
+1. 製作完dlg後，於occ-tpc的webpack.config將dlg導出
+2. 進入要使用該dlg的模塊，將該dlg加入至LookupService
+
+3. dlg的控件組成
+   (1)dlg-commoninput
+   (2)dlg-proxy
+
+4. 最重要的部分在blur，dlg-commoninput的blurChange會將值帶回並做驗證是否真的有這個值
+
+   this.hbDynamicHost.component.instance.convert -> dlg convert (驗證值是否正確) -> convertAlert(錯誤提示)
+
+   blurChange其中的onConvert，讓我們可以在值帶回時做自定義操作
