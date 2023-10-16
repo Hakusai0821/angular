@@ -206,14 +206,12 @@ export abstract class EditSuper<T extends FormGroup, E extends IEntity>  {
 
   // 銀行專案開始點[@2]
   initForm() {
-
     this.initFormGroup();
     //用takeUntil()可以在組件銷毀的時候取消訂閱
-    //
     this.activatedRoute.params.pipe(takeUntil(this.ngUnsubscribe)).subscribe({
       next: (res) => {
-
-        let progs = JSON.parse(String(sessionStorage.getItem('progs')))[this.router.url.split("/" + res['pk'])[0]]
+        let progs = JSON.parse(String(sessionStorage.getItem('progs')))
+        [this.router.url.split("/" + res['pk'])[0]]
         this.relatedNeeds = [];
         if (progs != undefined) {
           for (let item of progs.sub) {
@@ -224,14 +222,9 @@ export abstract class EditSuper<T extends FormGroup, E extends IEntity>  {
             })
           }
         }
-
         this.pk = res['pk'];
-
         this.initparms(res);
-
-
       }, complete: () => {
-
       }, error: (err) => {
         console.error(err)
       },
