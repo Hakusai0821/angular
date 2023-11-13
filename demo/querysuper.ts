@@ -134,14 +134,6 @@ export abstract class QuerySuper {
     }
   }
   ngOnInit() {
-    //有什麼作用待參考
-    // this.changeDetectorRef.detectChanges();
-    // this.activatedRoute.fragment.subscribe(f => {
-    //     const element: HTMLElement | null = document.getElementById(f!);
-    //     if (element)
-    //         element.scrollIntoView({ behavior: "smooth" });
-    // });
-
     this.loadWorktaskData(); //載入任務資料
     //如果沒有數據，用query來查詢
     if (this.datasource.data.length == 0)
